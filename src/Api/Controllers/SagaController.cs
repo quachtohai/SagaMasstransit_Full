@@ -19,8 +19,8 @@ public class SagaController : ControllerBase
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public IActionResult GenerateUrlViewer()
     {
-        _logger.Information("Request received; Method {method}", nameof(GenerateUrlViewer));
-
+        _logger.Information("Request received; Method {method} 1", nameof(GenerateUrlViewer));
+        _logger.Information("Request received; Method {method} 2", nameof(GenerateUrlViewer));
         var graph = new OrderStateMachine().GetGraph();
         var dotFile = new StateMachineGraphvizGenerator(graph).CreateDotFile();
         var quickChart = $"https://quickchart.io/graphviz?graph={dotFile.Replace("\n","").Replace("\r", "")}";
