@@ -19,7 +19,7 @@ public class SagaController : ControllerBase
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public IActionResult GenerateUrlViewer()
     {
-        _logger.Information("Request received; Method {method}", nameof(GenerateUrlViewer));
+        _logger.Information("Request received from method; Method {method}", nameof(GenerateUrlViewer));
 
         var graph = new OrderStateMachine().GetGraph();
         var dotFile = new StateMachineGraphvizGenerator(graph).CreateDotFile();
